@@ -1,6 +1,6 @@
-input = input("Enter a number: ")
+num = input("Enter a number: ")
 
-num = int(input)
+num = int(num)
 
 if num == 0:
     print(f"{num} is zero")

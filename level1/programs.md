@@ -14,7 +14,7 @@ A collection of beginner Python practice programs covering input/output, arithme
 | 06 | [Bigger of Two Numbers](#06--bigger-of-two-numbers) | Comparison |
 | 07 | [Biggest of Three Numbers](#07--biggest-of-three-numbers) | Logical operators |
 | 08 | [Swap Two Numbers](#08--swap-two-numbers) | Swapping without a temp variable |
-| 09 | [Leap Year Check](#09--leap-year-check) | Validation & `sys.exit` |
+| 09 | [Leap Year Check](#09--leap-year-check) | Nested `if` & validation |
 | 10 | [Print 1 to N](#10--print-1-to-n) | `while` loop |
 
 ---
@@ -30,13 +30,15 @@ print(f'Hello, {name}')
 
 ## 02 — Sum of Two Numbers
 
-Adds two fixed values and prints the result.
+Takes two numbers from the user and prints their sum.
 
 ```python
-a = 10
-b = 20
+input1 = input("Enter first number: ")
+input2 = input("Enter second number: ")
 
-print(f'Sum is: {a + b}')
+num1, num2 = int(input1), int(input2)
+
+print(f"Sum is: {num1 + num2}")
 ```
 
 ## 03 — Basic Calculator
@@ -79,9 +81,9 @@ else:
 Classifies a number as positive, negative, or zero.
 
 ```python
-input = input("Enter a number: ")
+num = input("Enter a number: ")
 
-num = int(input)
+num = int(num)
 
 if num == 0:
     print(f"{num} is zero")
@@ -120,10 +122,10 @@ input3 = input("Enter third number: ")
 
 num1, num2, num3 = int(input1), int(input2), int(input3)
 
-if num1 > num2 and num1 > num3:
+if num1 >= num2 and num1 >= num3:
     print(f"{num1} is bigger")
-elif num2 > num1 and num2 > num3:
-    print(f"{num2} si bigger")
+elif num2 >= num1 and num2 >= num3:
+    print(f"{num2} is bigger")
 else:
     print(f"{num3} is bigger")
 ```
@@ -153,7 +155,7 @@ print(num1, num2)
 
 ## 09 — Leap Year Check
 
-Validates a 4-digit year and checks whether it is a leap year.
+Validates a 4-digit year and applies the full leap-year rule (divisible by 4, except centuries not divisible by 400).
 
 ```python
 import sys
@@ -164,10 +166,18 @@ if len(year) != 4:
     print("Please enter a valid year!")
     sys.exit("exiting...")
 
-if int(year) % 4 == 0:
-    print(f"{year} is a leap year")
+year = int(year)
+
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print(f"{year} is a leap year")
+        else:
+            print(f"{year} is a common year")
+    else:
+        print(f"{year} is a leap year")
 else:
-    print(f"{year} is not a leap year")
+    print(f"{year} is a common year")
 ```
 
 ## 10 — Print 1 to N
