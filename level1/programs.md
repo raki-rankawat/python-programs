@@ -1,6 +1,6 @@
 # Coding Practice — Python Programs
 
-A collection of beginner Python practice programs covering input/output, arithmetic, conditionals, and loops.
+A collection of beginner Python practice programs covering input/output, arithmetic, conditionals, loops, and strings.
 
 ## Table of Contents
 
@@ -16,6 +16,16 @@ A collection of beginner Python practice programs covering input/output, arithme
 | 08 | [Swap Two Numbers](#08--swap-two-numbers) | Swapping without a temp variable |
 | 09 | [Leap Year Check](#09--leap-year-check) | Nested `if` & validation |
 | 10 | [Print 1 to N](#10--print-1-to-n) | `while` loop |
+| 11 | [Multiplication Table](#11--multiplication-table) | `for` loop & `range` |
+| 12 | [Sum of 1 to N](#12--sum-of-1-to-n) | Accumulator pattern |
+| 13 | [Sum of Even Numbers](#13--sum-of-even-numbers) | Loop with condition |
+| 14 | [Countdown from N](#14--countdown-from-n) | `while` loop |
+| 15 | [Count Digits](#15--count-digits) | Iterating over a string |
+| 16 | [Sum of Digits](#16--sum-of-digits) | String to int conversion |
+| 17 | [Reverse a Number](#17--reverse-a-number) | `reversed()` |
+| 18 | [Palindrome Check](#18--palindrome-check) | String comparison |
+| 19 | [Factorial](#19--factorial) | `while` loop & accumulation |
+| 20 | [Prime Number Check](#20--prime-number-check) | `for` loop & `continue` |
 
 ---
 
@@ -191,4 +201,167 @@ i = 1
 while i <= int(n):
     print(i)
     i = i + 1
+```
+
+## 11 — Multiplication Table
+
+Prints the multiplication table (1 to 10) for a given number.
+
+```python
+num = input("Enter a number (1-10): ")
+
+num = int(num)
+
+for i in range(10):
+    print(f"{num} x {i + 1} = {num * (i + 1)}")
+```
+
+## 12 — Sum of 1 to N
+
+Adds up all numbers from 1 to N using an accumulator.
+
+```python
+num = input("Enter a number (1-10): ")
+
+num = int(num)
+sum = 0
+
+for i in range(num):
+    sum = sum + (i + 1)
+
+print(f"Total is: {sum}")
+```
+
+## 13 — Sum of Even Numbers
+
+Adds up only the even numbers from 1 to N.
+
+```python
+num = input("Enter a number (1-10): ")
+
+num = int(num)
+sum = 0
+
+for i in range(num):
+    if (i + 1) % 2 == 0:
+        sum = sum + (i + 1)
+
+print(f"Total is: {sum}")
+```
+
+## 14 — Countdown from N
+
+Counts down from N to 1 using a `while` loop.
+
+```python
+num = input("Enter a number (1-10): ")
+
+num = int(num)
+
+while num > 0:
+    print(num)
+    num = num - 1
+```
+
+## 15 — Count Digits
+
+Counts the number of digits by iterating over the input string.
+
+```python
+str = input("Enter a integer: ")
+
+count = 0
+
+for i in str:
+    count = count + 1
+
+print(f"Total digits are: {count}")
+```
+
+## 16 — Sum of Digits
+
+Adds up the individual digits of a number.
+
+```python
+str = input("Enter a integer: ")
+
+sum = 0
+
+for i in str:
+    sum = sum + int(i)
+
+print(f"Sum of integer: {sum}")
+```
+
+## 17 — Reverse a Number
+
+Reverses the digits of a number using `reversed()`.
+
+```python
+str = input("Enter a integer: ")
+
+newStr = ""
+
+for letter in reversed(str):
+    newStr = newStr + "" + letter
+
+print(f"Reverse integer: {newStr}")
+```
+
+## 18 — Palindrome Check
+
+Checks whether a number reads the same forwards and backwards.
+
+```python
+str = input("Enter a integer: ")
+
+newStr = ""
+
+for letter in reversed(str):
+    newStr = newStr + "" + letter
+
+if str == newStr:
+    print(f"{str} is palindrome")
+else:
+    print(f"{str} is not palindrome")
+```
+
+## 19 — Factorial
+
+Computes the factorial of a number using a `while` loop.
+
+```python
+num = input("Enter a number: ")
+
+num = int(num)
+fact = 1
+
+while num > 0:
+    fact = fact * num
+    num = num - 1
+
+print(f"Factorial is: {fact}")
+```
+
+## 20 — Prime Number Check
+
+Checks whether a number is prime by testing for divisors.
+
+```python
+num = input("Enter a number: ")
+
+num = int(num)
+isPrime = True
+
+for i in range(num):
+    if i < 2:
+        continue
+
+    if num % i == 0:
+        isPrime = False
+
+if not isPrime:
+    print(f"{num} is not prime")
+else:
+    print(f"{num} is prime")
 ```
